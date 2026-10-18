@@ -1,7 +1,7 @@
 // Offline support: cache the app shell on install, serve from cache first,
 // and keep a copy of anything else fetched (the web fonts) for next time.
 // Bump VERSION whenever a file in SHELL changes so phones pick up the update.
-const VERSION = 'v2';
+const VERSION = 'v3';
 const SHELL = [
   './',
   'index.html',
@@ -11,6 +11,7 @@ const SHELL = [
   'icons/icon-maskable-512.png',
   'icons/apple-touch-icon.png',
   'icons/icon.svg',
+  'favicon.ico',
 ];
 
 self.addEventListener('install', (e) => {
