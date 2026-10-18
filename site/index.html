@@ -7,6 +7,12 @@
 <title>strokerate.app mock-ups</title>
 <meta name="description" content="Design mock-ups of the on-water screen for strokerate.app, a free open-source rowing computer for your phone.">
 <meta name="theme-color" content="#000000">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="favicon.ico" sizes="48x48 32x32 16x16">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Barlow:wght@500;600;700&display=swap">
@@ -526,6 +532,8 @@ body {
   setInterval(tick, 500);
   setTimeout(stroke, 60000 / rate);
 })();
+
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
 </script>
 <!-- /body -->
 </body>

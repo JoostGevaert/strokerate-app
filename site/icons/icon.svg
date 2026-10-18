@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Single scull seen from above, with two crossed oars. -->
+  <rect width="512" height="512" fill="#000"/>
+  <g transform="translate(256 256) scale(.88) translate(-256 -256)" fill="#ff8a1f">
+    <path d="M156.1 393.5 L344.2 134.6" stroke="#ff8a1f" stroke-width="9"/>
+    <path d="M-2 -4.5 L22 -9 L98 -12 L96 36 L40 34 C22 33 14 5 -2 4.5 Z" transform="translate(344.2 134.6) rotate(-54)"/>
+    <path d="M355.9 393.5 L167.8 134.6" stroke="#ff8a1f" stroke-width="9"/>
+    <path d="M-2 -4.5 L22 -9 L98 -12 L96 36 L40 34 C22 33 14 5 -2 4.5 Z" transform="translate(167.8 134.6) rotate(-126) scale(1 -1)"/>
+    <path d="M256 34 L268 150 L270 256 L266 380 L256 478 L246 380 L242 256 L244 150 Z" stroke="#000" stroke-width="8" stroke-linejoin="round" paint-order="stroke"/>
+  </g>
+</svg>
