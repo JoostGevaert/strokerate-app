@@ -24,11 +24,11 @@
   --num: "Barlow Condensed", "Roboto Condensed", "Arial Narrow", sans-serif;
   --ui: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  /* screen skin (default: night orange) */
+  /* screen skin (default: fluo yellow) */
   --bg: #000000;
-  --fg: #ff8a1f;
-  --dim: #c96f1d;
-  --rule: #3b230d;
+  --fg: #eaff00;
+  --dim: #a8b800;
+  --rule: #333800;
 
   /* settings sheet */
   --sheet: #17130f;
@@ -39,6 +39,7 @@
 
   color-scheme: dark;
 }
+[data-skin="night-orange"] { --bg: #000000; --fg: #ff8a1f; --dim: #c96f1d; --rule: #3b230d; }
 [data-skin="night-white"] { --bg: #000000; --fg: #ffffff; --dim: #a3a9ad; --rule: #2b2f33; }
 [data-skin="dawn-red"]    { --bg: #000000; --fg: #ff3b2f; --dim: #b3302a; --rule: #3a0f0c; }
 [data-skin="fluo-yellow"]  { --bg: #000000; --fg: #eaff00; --dim: #a8b800; --rule: #333800; }
@@ -317,7 +318,7 @@ body {
 </head>
 <body>
 <!-- body -->
-<div class="app" id="app" data-layout="classic" data-skin="night-orange">
+<div class="app" id="app" data-layout="classic" data-skin="fluo-yellow">
   <main class="screen" id="screen" aria-label="On-water display (simulated data)">
     <section class="m m-rate">
       <div class="hd"><span class="l"><i class="catch" id="catch"></i>Rate</span><span class="u">spm</span></div>
@@ -452,7 +453,7 @@ body {
   let layout = LAYOUTS.find((l) => fromHash.startsWith(l + '-')) || store.get('sr-layout');
   let skin = layout && fromHash.startsWith(layout + '-') ? fromHash.slice(layout.length + 1) : store.get('sr-skin');
   if (!LAYOUTS.includes(layout)) layout = 'classic';
-  if (!SKINS[skin]) skin = 'night-orange';
+  if (!SKINS[skin]) skin = 'fluo-yellow';
   apply(layout, skin, false);
 
   $('layouts').addEventListener('click', (e) => {
