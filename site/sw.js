@@ -1,7 +1,7 @@
 // Offline support: cache the app shell on install, serve from cache first,
 // and keep a copy of anything else fetched (the web fonts) for next time.
 // Bump VERSION whenever a file in SHELL changes so phones pick up the update.
-const VERSION = 'v3';
+const VERSION = 'v4';
 const SHELL = [
   './',
   'index.html',
