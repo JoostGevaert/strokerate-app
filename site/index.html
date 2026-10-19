@@ -41,6 +41,11 @@
 }
 [data-skin="night-white"] { --bg: #000000; --fg: #ffffff; --dim: #a3a9ad; --rule: #2b2f33; }
 [data-skin="dawn-red"]    { --bg: #000000; --fg: #ff3b2f; --dim: #b3302a; --rule: #3a0f0c; }
+[data-skin="fluo-yellow"]  { --bg: #000000; --fg: #eaff00; --dim: #a8b800; --rule: #333800; }
+[data-skin="fluo-green"]   { --bg: #000000; --fg: #39ff14; --dim: #29b80e; --rule: #0d3804; }
+[data-skin="fluo-blue"]    { --bg: #000000; --fg: #4fd6ff; --dim: #399ab8; --rule: #112f38; }
+[data-skin="fluo-orange"]  { --bg: #000000; --fg: #ff6a1a; --dim: #b84c13; --rule: #381706; }
+[data-skin="fluo-pink"]    { --bg: #000000; --fg: #ff40c8; --dim: #b82e90; --rule: #380e2c; }
 [data-skin="daylight"]    { --bg: #ffffff; --fg: #000000; --dim: #3d3d3d; --rule: #c9c9c9; }
 [data-skin="lcd"]         { --bg: #c3cbb8; --fg: #121611; --dim: #3c4535; --rule: #96a08a; }
 [data-skin="hi-vis"]      { --bg: #ffd60a; --fg: #000000; --dim: #3b3200; --rule: #c7a600; }
@@ -261,6 +266,7 @@ body {
 .thumb i { background: currentColor; opacity: .55; border-radius: 1.5px; }
 .thumb i.big { opacity: 1; }
 
+.h2-gap { margin-top: 12px !important; }
 .skins { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
 .sw {
   border: 1px solid var(--sheet-line);
@@ -300,6 +306,7 @@ body {
   .sheet { max-height: 92%; gap: 10px; padding-top: 10px; }
   .thumb { display: none; }
   .skins { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  #skins { grid-template-columns: repeat(8, minmax(0, 1fr)); }
   .sw { grid-template-columns: 1fr; text-align: center; }
   .sw b { border-right: 0; border-bottom: 1px solid var(--sheet-line); }
   .sw span { padding: 6px 4px; }
@@ -368,14 +375,22 @@ body {
     </div>
 
     <div>
-      <h2>Colours</h2>
+      <h2>On black, brightest first</h2>
       <div class="skins" id="skins">
-        <button class="sw" type="button" id="sk-night-orange" data-skin="night-orange"><b style="background:#000;color:#ff8a1f">24</b><span>Night orange</span></button>
         <button class="sw" type="button" id="sk-night-white" data-skin="night-white"><b style="background:#000;color:#fff">24</b><span>Night white</span></button>
+        <button class="sw" type="button" id="sk-fluo-yellow" data-skin="fluo-yellow"><b style="background:#000;color:#eaff00">24</b><span>Fluo yellow</span></button>
+        <button class="sw" type="button" id="sk-fluo-green" data-skin="fluo-green"><b style="background:#000;color:#39ff14">24</b><span>Fluo green</span></button>
+        <button class="sw" type="button" id="sk-fluo-blue" data-skin="fluo-blue"><b style="background:#000;color:#4fd6ff">24</b><span>Fluo blue</span></button>
+        <button class="sw" type="button" id="sk-night-orange" data-skin="night-orange"><b style="background:#000;color:#ff8a1f">24</b><span>Night orange</span></button>
+        <button class="sw" type="button" id="sk-fluo-orange" data-skin="fluo-orange"><b style="background:#000;color:#ff6a1a">24</b><span>Fluo orange</span></button>
+        <button class="sw" type="button" id="sk-fluo-pink" data-skin="fluo-pink"><b style="background:#000;color:#ff40c8">24</b><span>Fluo pink</span></button>
         <button class="sw" type="button" id="sk-dawn-red" data-skin="dawn-red"><b style="background:#000;color:#ff3b2f">24</b><span>Dawn red</span></button>
+      </div>
+      <h2 class="h2-gap">Light screens, for direct sun</h2>
+      <div class="skins" id="skins-light">
         <button class="sw" type="button" id="sk-daylight" data-skin="daylight"><b style="background:#fff;color:#000">24</b><span>Daylight</span></button>
-        <button class="sw" type="button" id="sk-lcd" data-skin="lcd"><b style="background:#c3cbb8;color:#121611">24</b><span>LCD</span></button>
         <button class="sw" type="button" id="sk-hi-vis" data-skin="hi-vis"><b style="background:#ffd60a;color:#000">24</b><span>Hi-vis</span></button>
+        <button class="sw" type="button" id="sk-lcd" data-skin="lcd"><b style="background:#c3cbb8;color:#121611">24</b><span>LCD</span></button>
       </div>
       <p class="note" id="skin-note"></p>
     </div>
@@ -398,7 +413,12 @@ body {
   const SKINS = {
     'night-orange': { bg: '#000000', fg: '#ff8a1f', note: 'Dark with orange digits. Easy on the eyes at dawn, dusk and under cloud, and saves battery on OLED screens. In direct sun the glare on the glass washes it out sooner than a light screen.' },
     'night-white':  { bg: '#000000', fg: '#ffffff', note: 'Dark with white digits. The most contrast a dark screen can give, still at its best out of direct sun.' },
-    'dawn-red':     { bg: '#000000', fg: '#ff3b2f', note: 'Red on black keeps your night vision for pre-dawn outings. Too dim for daylight.' },
+    'dawn-red':     { bg: '#000000', fg: '#ff3b2f', note: 'Red on black keeps your night vision for pre-dawn outings. The dimmest option, too dim for daylight.' },
+    'fluo-yellow':  { bg: '#000000', fg: '#eaff00', note: 'Highlighter yellow on black. The brightest colour after white: your eye is most sensitive to yellow-green, so it holds up best of the colours in sun.' },
+    'fluo-green':   { bg: '#000000', fg: '#39ff14', note: 'Highlighter green on black. Very bright and sits near the peak of what the eye sees best, a close second to yellow.' },
+    'fluo-blue':    { bg: '#000000', fg: '#4fd6ff', note: 'Highlighter light blue on black. Bright and calm, but loses more to glare than yellow or green.' },
+    'fluo-orange':  { bg: '#000000', fg: '#ff6a1a', note: 'Highlighter orange on black. Punchier than Night orange but a little darker, so it fades sooner in sun.' },
+    'fluo-pink':    { bg: '#000000', fg: '#ff40c8', note: 'Highlighter pink on black. Eye-catching, but dark for its look; one of the first to wash out in sun.' },
     'daylight':     { bg: '#ffffff', fg: '#000000', note: 'Black on white at full brightness. The best choice in bright sun: reflections on the glass matter much less on a light screen.' },
     'lcd':          { bg: '#c3cbb8', fg: '#121611', note: 'Looks like the reflective LCD on a classic rowing computer. Softer than Daylight, with less glare off a wet screen.' },
     'hi-vis':       { bg: '#ffd60a', fg: '#000000', note: 'Black on yellow. Very bright and stands out in sun, like a safety vest.' },
@@ -446,10 +466,10 @@ body {
     const b = e.target.closest('[data-layout]');
     if (b) apply(b.dataset.layout, app.dataset.skin);
   });
-  $('skins').addEventListener('click', (e) => {
+  ['skins', 'skins-light'].forEach((id) => $(id).addEventListener('click', (e) => {
     const b = e.target.closest('[data-skin]');
     if (b) apply(app.dataset.layout, b.dataset.skin);
-  });
+  }));
 
   // settings sheet
   const sheet = $('sheet'), gear = $('gear');
